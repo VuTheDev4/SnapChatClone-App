@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class SelectPictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -15,7 +16,7 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
     
     var imagePicker : UIImagePickerController?
     var imageAdded = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,8 +26,8 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
     }
     @IBAction func selectPhotoTapped(_ sender: Any) {
         if imagePicker != nil {
-        imagePicker!.sourceType = .photoLibrary
-        present(imagePicker!, animated: true, completion: nil)
+            imagePicker!.sourceType = .photoLibrary
+            present(imagePicker!, animated: true, completion: nil)
         }
     }
     
@@ -47,7 +48,6 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
             imageView.image = image
             imageAdded = true
         }
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -56,20 +56,35 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
         if let message = messageTextField.text {
             if imageAdded && message != "" {
                 // Segues to next view controller
-                
+                let imageFolder = Storage.storage().reference().child("images")
+                                                // firebase folder name ^^^^
+                // Convert image to data
+                if let image = imageView.image {
+                    if let imageData =  UIImageJPEGRepresentation(image, 0.1) {
+                        // Gives each picture a unique ID                Upload and save data
+                        imageFolder.child("\(NSUUID().uuidString).jpeg").putData(imageData, metadata: nil) { (metadata, error) in
+                            if let error = error {
+                                self.presentAlert(alert: error.localizedDescription)
+                            } else {
+                                // Segue to next controller
+                                
+                            }
+                        }
+                    }
+                }
             } else {
                 // We are missing somthing
-                let alertVC =  UIAlertController(title: "error", message: "You must provide an image and a message", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-                    alertVC.dismiss(animated: true, completion: nil)
-                }
-                alertVC.addAction(okAction)
-                present(alertVC, animated: true, completion: nil)
+                presentAlert(alert: "You must provide an image and a message")
             }
-            
         }
-        
-        
-        
+    }
+    
+    func presentAlert(alert : String) {
+        let alertVC =  UIAlertController(title: "error", message: alert, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            alertVC.dismiss(animated: true, completion: nil)
+        }
+        alertVC.addAction(okAction)
+        present(alertVC, animated: true, completion: nil)
     }
 }
