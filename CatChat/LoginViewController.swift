@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
                         if let error = error {
                             self.presentAlert(alert: error.localizedDescription)
                         } else {
+                            self.performSegue(withIdentifier: "moveToSnaps", sender: nil)
                             print("Sign up was successful!!!!")
                         }
                     }
@@ -46,6 +47,7 @@ class LoginViewController: UIViewController {
                         if let error = error {
                             self.presentAlert(alert: error.localizedDescription)
                         } else {
+                            self.performSegue(withIdentifier: "moveToSnaps", sender: nil)
                             print("Log in was successful!!!!!!")
                         }
                     }
@@ -57,7 +59,7 @@ class LoginViewController: UIViewController {
     }
     // error alert
     func presentAlert(alert : String) {
-       let alertVC =  UIAlertController(title: "error", message: alert, preferredStyle: .alert)
+        let alertVC =  UIAlertController(title: "error", message: alert, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
             alertVC.dismiss(animated: true, completion: nil)
         }

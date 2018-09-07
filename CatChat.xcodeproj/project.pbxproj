@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		395B226EB84AECBB9574145E /* Pods_CatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD6CEFCBAF9C7DC70D468CA /* Pods_CatChat.framework */; };
+		EA62E6902142D41A00CA98E4 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA62E68F2142D41A00CA98E4 /* SnapsViewController.swift */; };
+		EA62E6922142D90A00CA98E4 /* SelectPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA62E6912142D90A00CA98E4 /* SelectPictureViewController.swift */; };
 		EA63012F2142578800AAC6CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA63012E2142578800AAC6CE /* AppDelegate.swift */; };
 		EA6301312142578800AAC6CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6301302142578800AAC6CE /* LoginViewController.swift */; };
 		EA6301342142578800AAC6CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA6301322142578800AAC6CE /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		290B609FFD46F2D32DDE1745 /* Pods-CatChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-CatChat/Pods-CatChat.release.xcconfig"; sourceTree = "<group>"; };
 		53E9F893DE7B4AF5DB01E469 /* Pods-CatChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CatChat/Pods-CatChat.debug.xcconfig"; sourceTree = "<group>"; };
 		ABD6CEFCBAF9C7DC70D468CA /* Pods_CatChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA62E68F2142D41A00CA98E4 /* SnapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
+		EA62E6912142D90A00CA98E4 /* SelectPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPictureViewController.swift; sourceTree = "<group>"; };
 		EA63012B2142578800AAC6CE /* CatChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA63012E2142578800AAC6CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA6301302142578800AAC6CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				EA6301402142581F00AAC6CE /* GoogleService-Info.plist */,
 				EA63012E2142578800AAC6CE /* AppDelegate.swift */,
 				EA6301302142578800AAC6CE /* LoginViewController.swift */,
+				EA62E68F2142D41A00CA98E4 /* SnapsViewController.swift */,
+				EA62E6912142D90A00CA98E4 /* SelectPictureViewController.swift */,
 				EA6301322142578800AAC6CE /* Main.storyboard */,
 				EA6301352142578A00AAC6CE /* Assets.xcassets */,
 				EA6301372142578A00AAC6CE /* LaunchScreen.storyboard */,
@@ -209,7 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA6301312142578800AAC6CE /* LoginViewController.swift in Sources */,
+				EA62E6922142D90A00CA98E4 /* SelectPictureViewController.swift in Sources */,
 				EA63012F2142578800AAC6CE /* AppDelegate.swift in Sources */,
+				EA62E6902142D41A00CA98E4 /* SnapsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,13 +367,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SL2PQN527J;
 				INFOPLIST_FILE = CatChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vuduong.CatChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -378,13 +387,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SL2PQN527J;
 				INFOPLIST_FILE = CatChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vuduong.CatChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

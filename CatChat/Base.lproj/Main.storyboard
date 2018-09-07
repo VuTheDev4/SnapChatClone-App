@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -82,11 +83,137 @@
                         <outlet property="emailTextField" destination="H0i-Lp-RUp" id="eVB-1D-8d2"/>
                         <outlet property="passwordTextField" destination="kgc-eq-iHM" id="LkP-gC-zPa"/>
                         <outlet property="topButton" destination="nTb-DM-7g7" id="xhj-oV-CYA"/>
+                        <segue destination="7Nb-RS-bAr" kind="presentation" identifier="moveToSnaps" id="IdC-4f-lJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="98.50074962518741"/>
         </scene>
+        <!--Cat Snaps-->
+        <scene sceneID="NqB-lv-cB1">
+            <objects>
+                <tableViewController id="onB-b6-ZPS" customClass="SnapsViewController" customModule="CatChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UbE-uC-fSh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Dyz-q9-ckt">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dyz-q9-ckt" id="q0c-f9-Zj0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="onB-b6-ZPS" id="pya-WL-hjc"/>
+                            <outlet property="delegate" destination="onB-b6-ZPS" id="63Y-4Z-0QQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cat Snaps" id="h22-5I-5Qe">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="FLt-he-g3A">
+                            <connections>
+                                <action selector="logOutTapped:" destination="onB-b6-ZPS" id="c5z-Ua-T4V"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Urm-yt-yw3">
+                            <connections>
+                                <segue destination="BGU-m5-fpV" kind="show" id="Yj5-FA-1oR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Trj-RD-tWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1736.8" y="97.601199400299862"/>
+        </scene>
+        <!--Select Picture View Controller-->
+        <scene sceneID="6XM-gb-FCe">
+            <objects>
+                <viewController id="BGU-m5-fpV" customClass="SelectPictureViewController" customModule="CatChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YbD-GI-DGp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="f2n-lh-4sG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="246"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="f2n-lh-4sG" secondAttribute="height" multiplier="125:82" id="DU7-E6-Tvo"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXL-TN-v17">
+                                <rect key="frame" x="20" y="325" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPl-BA-tSH">
+                                <rect key="frame" x="171.5" y="379" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextTapped:" destination="BGU-m5-fpV" eventType="touchUpInside" id="3Go-Vu-NCx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f2n-lh-4sG" firstAttribute="leading" secondItem="GVJ-if-8c2" secondAttribute="leading" id="9Gz-0J-fXK"/>
+                            <constraint firstItem="f2n-lh-4sG" firstAttribute="trailing" secondItem="GVJ-if-8c2" secondAttribute="trailing" id="B6l-ce-pO0"/>
+                            <constraint firstItem="GVJ-if-8c2" firstAttribute="trailing" secondItem="XXL-TN-v17" secondAttribute="trailing" constant="20" id="BC8-Ha-jhW"/>
+                            <constraint firstItem="jPl-BA-tSH" firstAttribute="centerX" secondItem="YbD-GI-DGp" secondAttribute="centerX" id="GaX-zh-h9I"/>
+                            <constraint firstItem="jPl-BA-tSH" firstAttribute="top" secondItem="XXL-TN-v17" secondAttribute="bottom" constant="24" id="Nde-x2-0m2"/>
+                            <constraint firstItem="f2n-lh-4sG" firstAttribute="top" secondItem="GVJ-if-8c2" secondAttribute="top" id="Voo-CE-0Si"/>
+                            <constraint firstItem="XXL-TN-v17" firstAttribute="top" secondItem="f2n-lh-4sG" secondAttribute="bottom" constant="15" id="h0f-nx-9O4"/>
+                            <constraint firstItem="XXL-TN-v17" firstAttribute="leading" secondItem="GVJ-if-8c2" secondAttribute="leading" constant="20" id="tko-Ia-5lC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GVJ-if-8c2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZSs-sO-NlU">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="Ps6-hc-xS1">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="BGU-m5-fpV" id="MNG-qj-1af"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="q8V-FG-j1D">
+                                <connections>
+                                    <action selector="selectPhotoTapped:" destination="BGU-m5-fpV" id="8Zh-fI-nmv"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="f2n-lh-4sG" id="9pG-Tc-qEO"/>
+                        <outlet property="messageTextField" destination="XXL-TN-v17" id="HAn-DI-Hfu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTb-P3-LZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2504.8000000000002" y="97.601199400299862"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9aP-ML-klD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Nb-RS-bAr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ynr-bp-v7Q">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="onB-b6-ZPS" kind="relationship" relationship="rootViewController" id="UVD-lx-6sy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="75o-7K-1kJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="98"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="409.60000610351562" height="409.60000610351562"/>
+    </resources>
 </document>
