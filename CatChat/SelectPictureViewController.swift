@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseDatabase
 
 class SelectPictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -87,6 +88,7 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
         if let downloadURL = sender as? String {
             if let selectVC = segue.destination as? SelectRecipientViewController {
                 selectVC.downloadURL = downloadURL
+                selectVC.snapDescription = messageTextField.text!
             }
         }
     }

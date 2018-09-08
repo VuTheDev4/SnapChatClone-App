@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
     
@@ -26,18 +27,23 @@ class LoginViewController: UIViewController {
     }
     
     
-    
     @IBAction func topTapped(_ sender: Any) {
         if let email = emailTextField.text {
             if let password = passwordTextField.text {
                 if signupMode {
+                    
                     // sign up
                     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                         if let error = error {
                             self.presentAlert(alert: error.localizedDescription)
                         } else {
-                            self.performSegue(withIdentifier: "moveToSnaps", sender: nil)
-                            print("Sign up was successful!!!!")
+                            
+                            // add users to database
+                            if let user = user {
+                                Database.database().reference().child("users").child(user.uid).child("email").setValue(user.email)
+                                self.performSegue(withIdentifier: "moveToSnaps", sender: nil)
+                                print("Sign up was successful!!!!")
+                            }
                         }
                     }
                     
