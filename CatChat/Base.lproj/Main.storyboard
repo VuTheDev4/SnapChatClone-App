@@ -61,20 +61,20 @@
                         <constraints>
                             <constraint firstItem="kgc-eq-iHM" firstAttribute="top" secondItem="H0i-Lp-RUp" secondAttribute="bottom" constant="16" id="42I-qH-jij"/>
                             <constraint firstItem="S7M-d2-B3j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Tx-Xf-lOF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H0i-Lp-RUp" secondAttribute="trailing" constant="20" id="9Wf-C7-Kx4"/>
                             <constraint firstItem="4Rw-tt-Rzk" firstAttribute="top" secondItem="nTb-DM-7g7" secondAttribute="bottom" constant="8" id="AeI-Y2-Vuq"/>
                             <constraint firstItem="S7M-d2-B3j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="FGp-IM-KBH"/>
                             <constraint firstItem="0KV-7c-8lh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FcI-eg-FOp"/>
                             <constraint firstItem="kgc-eq-iHM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KEi-tL-sd8"/>
                             <constraint firstItem="nTb-DM-7g7" firstAttribute="top" secondItem="kgc-eq-iHM" secondAttribute="bottom" constant="20" id="LeA-58-My1"/>
-                            <constraint firstItem="kgc-eq-iHM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Lln-f8-A8Q"/>
+                            <constraint firstItem="kgc-eq-iHM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="MTW-bM-HZA"/>
                             <constraint firstItem="H0i-Lp-RUp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N09-yq-Q2Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kgc-eq-iHM" secondAttribute="trailing" constant="20" id="TNJ-Fk-EIm"/>
                             <constraint firstItem="nTb-DM-7g7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uug-l5-FXx"/>
-                            <constraint firstItem="H0i-Lp-RUp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WHM-9r-7yx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kgc-eq-iHM" secondAttribute="trailing" constant="20" id="bRJ-6N-o8Y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H0i-Lp-RUp" secondAttribute="trailing" constant="20" id="cQs-s6-ZVt"/>
                             <constraint firstItem="4Rw-tt-Rzk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f2T-tg-hjj"/>
                             <constraint firstItem="0KV-7c-8lh" firstAttribute="top" secondItem="4Rw-tt-Rzk" secondAttribute="bottom" constant="8" id="oQ6-fC-dfH"/>
                             <constraint firstItem="H0i-Lp-RUp" firstAttribute="top" secondItem="S7M-d2-B3j" secondAttribute="bottom" constant="24" id="qXx-th-9RA"/>
+                            <constraint firstItem="H0i-Lp-RUp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xOO-l1-buV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -99,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Dyz-q9-ckt">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" id="Dyz-q9-ckt">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dyz-q9-ckt" id="q0c-f9-Zj0">
@@ -188,11 +188,40 @@
                     <connections>
                         <outlet property="imageView" destination="f2n-lh-4sG" id="9pG-Tc-qEO"/>
                         <outlet property="messageTextField" destination="XXL-TN-v17" id="HAn-DI-Hfu"/>
+                        <segue destination="H7h-ry-TCO" kind="show" identifier="selectReceiverSegue" id="K4w-j7-BNA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTb-P3-LZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2504.8000000000002" y="97.601199400299862"/>
+        </scene>
+        <!--Select Recipient View Controller-->
+        <scene sceneID="XNk-BZ-20P">
+            <objects>
+                <tableViewController id="H7h-ry-TCO" customClass="SelectRecipientViewController" customModule="CatChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eyR-tH-BPH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" id="kJl-E4-Oun">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kJl-E4-Oun" id="A5a-Uo-87g">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="H7h-ry-TCO" id="8aD-aJ-pqq"/>
+                            <outlet property="delegate" destination="H7h-ry-TCO" id="pIT-sh-Agw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wfa-3P-cwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3188" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9aP-ML-klD">

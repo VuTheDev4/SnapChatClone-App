@@ -57,24 +57,36 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
             if imageAdded && message != "" {
                 // Segues to next view controller
                 let imageFolder = Storage.storage().reference().child("images")
-                                                // firebase folder name ^^^^
+                // firebase folder name ^^^^
                 // Convert image to data
                 if let image = imageView.image {
                     if let imageData =  UIImageJPEGRepresentation(image, 0.1) {
                         // Gives each picture a unique ID                Upload and save data
-                        imageFolder.child("\(NSUUID().uuidString).jpeg").putData(imageData, metadata: nil) { (metadata, error) in
+                        imageFolder.child("\(NSUUID().uuidString).jpg").putData(imageData, metadata: nil, completion: { (metadata, error) in
                             if let error = error {
                                 self.presentAlert(alert: error.localizedDescription)
                             } else {
                                 // Segue to next controller
-                                
+                                if let downloadURL = metadata?.downloadURL()?.absoluteString {
+                                    self.performSegue(withIdentifier: "selectReceiverSegue", sender: downloadURL)
+                                    
+                                }
                             }
-                        }
+                        })
+                        
                     }
                 }
             } else {
                 // We are missing somthing
                 presentAlert(alert: "You must provide an image and a message")
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let downloadURL = sender as? String {
+            if let selectVC = segue.destination as? SelectRecipientViewController {
+                selectVC.downloadURL = downloadURL
             }
         }
     }
