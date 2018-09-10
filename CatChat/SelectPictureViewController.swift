@@ -32,6 +32,10 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
+//    @IBAction func cameraPressed(_ sender: Any) {
+//        pickerController.sourceType = .camera
+//        present(pickerController, animated: true, completion: nil)
+    
     @IBAction func cameraTapped(_ sender: Any) {
         if imagePicker != nil {
             imagePicker!.sourceType = .camera
