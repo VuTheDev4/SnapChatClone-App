@@ -17,6 +17,7 @@
 		EA6301362142578A00AAC6CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA6301352142578A00AAC6CE /* Assets.xcassets */; };
 		EA6301392142578A00AAC6CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA6301372142578A00AAC6CE /* LaunchScreen.storyboard */; };
 		EA6301412142581F00AAC6CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA6301402142581F00AAC6CE /* GoogleService-Info.plist */; };
+		EAF25BF92145ED1500D94155 /* ViewSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF25BF82145ED1500D94155 /* ViewSnapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EA6301382142578A00AAC6CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA63013A2142578A00AAC6CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA6301402142581F00AAC6CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EAF25BF82145ED1500D94155 /* ViewSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSnapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,16 +80,17 @@
 		EA63012D2142578800AAC6CE /* CatChat */ = {
 			isa = PBXGroup;
 			children = (
-				EA6301402142581F00AAC6CE /* GoogleService-Info.plist */,
 				EA63012E2142578800AAC6CE /* AppDelegate.swift */,
 				EA6301302142578800AAC6CE /* LoginViewController.swift */,
 				EA62E68F2142D41A00CA98E4 /* SnapsViewController.swift */,
 				EA62E6912142D90A00CA98E4 /* SelectPictureViewController.swift */,
 				EA62E693214368D000CA98E4 /* SelectRecipientViewController.swift */,
+				EAF25BF82145ED1500D94155 /* ViewSnapViewController.swift */,
 				EA6301322142578800AAC6CE /* Main.storyboard */,
 				EA6301352142578A00AAC6CE /* Assets.xcassets */,
 				EA6301372142578A00AAC6CE /* LaunchScreen.storyboard */,
 				EA63013A2142578A00AAC6CE /* Info.plist */,
+				EA6301402142581F00AAC6CE /* GoogleService-Info.plist */,
 			);
 			path = CatChat;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CatChat/Pods-CatChat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -204,6 +208,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA62E694214368D000CA98E4 /* SelectRecipientViewController.swift in Sources */,
+				EAF25BF92145ED1500D94155 /* ViewSnapViewController.swift in Sources */,
 				EA6301312142578800AAC6CE /* LoginViewController.swift in Sources */,
 				EA62E6922142D90A00CA98E4 /* SelectPictureViewController.swift in Sources */,
 				EA63012F2142578800AAC6CE /* AppDelegate.swift in Sources */,

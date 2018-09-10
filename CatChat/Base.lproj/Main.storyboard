@@ -125,10 +125,55 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="2Nc-lv-ism" kind="show" identifier="viewSnapSegue" id="HrR-Gu-DIg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Trj-RD-tWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1736.8" y="97.601199400299862"/>
+        </scene>
+        <!--View Snap View Controller-->
+        <scene sceneID="dPs-5q-dwJ">
+            <objects>
+                <viewController id="2Nc-lv-ism" customClass="ViewSnapViewController" customModule="CatChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="niY-mS-0ur">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Ww-yT-5JE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="533"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="khhjkhjkhkjhjkhjkhkjhkjhkjhkjhkjhkjhkjhkjhkjhjkhkjhkjhhjkhjkjhkhgfhfdrtdrtduyuoigjfhgdfhgjk" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjg-Dq-SWh">
+                                <rect key="frame" x="10" y="607" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dCQ-hO-Xet"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Elv-gw-iY7" firstAttribute="trailing" secondItem="1Ww-yT-5JE" secondAttribute="trailing" id="Lfa-qe-ACH"/>
+                            <constraint firstItem="Gjg-Dq-SWh" firstAttribute="top" secondItem="1Ww-yT-5JE" secondAttribute="bottom" constant="10" id="TPB-xg-bYD"/>
+                            <constraint firstItem="Elv-gw-iY7" firstAttribute="trailing" secondItem="Gjg-Dq-SWh" secondAttribute="trailing" constant="10" id="ThT-cH-BbG"/>
+                            <constraint firstItem="1Ww-yT-5JE" firstAttribute="top" secondItem="Elv-gw-iY7" secondAttribute="top" id="Xaz-1Y-dmZ"/>
+                            <constraint firstItem="Gjg-Dq-SWh" firstAttribute="leading" secondItem="Elv-gw-iY7" secondAttribute="leading" constant="10" id="YAr-bF-5PZ"/>
+                            <constraint firstItem="1Ww-yT-5JE" firstAttribute="leading" secondItem="Elv-gw-iY7" secondAttribute="leading" id="iSL-vf-rfu"/>
+                            <constraint firstItem="Elv-gw-iY7" firstAttribute="bottom" secondItem="Gjg-Dq-SWh" secondAttribute="bottom" constant="10" id="rxG-pG-5wa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Elv-gw-iY7"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="1Ww-yT-5JE" id="sSU-Hj-l9t"/>
+                        <outlet property="messageLbl" destination="Gjg-Dq-SWh" id="lfK-Xo-ZqC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="chc-mc-xzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740" y="815"/>
         </scene>
         <!--Select Picture View Controller-->
         <scene sceneID="6XM-gb-FCe">
