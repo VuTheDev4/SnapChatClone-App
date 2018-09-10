@@ -70,7 +70,6 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
                                 // Segue to next controller
                                 if let downloadURL = metadata?.downloadURL()?.absoluteString {
                                     self.performSegue(withIdentifier: "selectReceiverSegue", sender: downloadURL)
-                                    
                                 }
                             }
                         })
