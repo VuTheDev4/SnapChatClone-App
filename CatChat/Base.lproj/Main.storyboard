@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="98.50074962518741"/>
+            <point key="canvasLocation" x="287" y="99"/>
         </scene>
         <!--Cat Snaps-->
         <scene sceneID="NqB-lv-cB1">
@@ -125,6 +125,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="4oq-D8-pB9" kind="show" identifier="viewSnapsSegue" id="8bX-A3-Std"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Trj-RD-tWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -221,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfa-3P-cwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3188" y="100"/>
+            <point key="canvasLocation" x="3234" y="99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9aP-ML-klD">
@@ -239,7 +242,49 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75o-7K-1kJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="98"/>
+            <point key="canvasLocation" x="982" y="98"/>
+        </scene>
+        <!--View Snap View Controller-->
+        <scene sceneID="cUb-dJ-Lqu">
+            <objects>
+                <viewController id="4oq-D8-pB9" customClass="ViewSnapViewController" customModule="CatChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HzX-tz-2RA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jM4-xn-5AE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="533"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="al;kdjfaklsdjflkjasdkfjajsdflkajdflkjalkdsjfalkjdflk;ajdsflkjadlkjf" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ky-Im-hqW">
+                                <rect key="frame" x="10" y="607" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Z70-ji-3cT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jM4-xn-5AE" firstAttribute="top" secondItem="lWr-4k-i35" secondAttribute="top" id="P0F-jA-j5c"/>
+                            <constraint firstItem="jM4-xn-5AE" firstAttribute="leading" secondItem="lWr-4k-i35" secondAttribute="leading" id="VHQ-bB-4tl"/>
+                            <constraint firstItem="jM4-xn-5AE" firstAttribute="trailing" secondItem="lWr-4k-i35" secondAttribute="trailing" id="cxN-kS-fjl"/>
+                            <constraint firstItem="3ky-Im-hqW" firstAttribute="leading" secondItem="lWr-4k-i35" secondAttribute="leading" constant="10" id="gyN-3U-1Zt"/>
+                            <constraint firstItem="3ky-Im-hqW" firstAttribute="top" secondItem="jM4-xn-5AE" secondAttribute="bottom" constant="10" id="rME-Km-qGx"/>
+                            <constraint firstItem="lWr-4k-i35" firstAttribute="bottom" secondItem="3ky-Im-hqW" secondAttribute="bottom" constant="10" id="sWQ-ta-0Sz"/>
+                            <constraint firstItem="lWr-4k-i35" firstAttribute="trailing" secondItem="3ky-Im-hqW" secondAttribute="trailing" constant="10" id="tGM-hA-d5L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lWr-4k-i35"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="jM4-xn-5AE" id="Y9j-UD-SD4"/>
+                        <outlet property="messageLabel" destination="3ky-Im-hqW" id="qeu-wI-5cU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4k5-Fz-2iq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1737" y="800"/>
         </scene>
     </scenes>
     <resources>
