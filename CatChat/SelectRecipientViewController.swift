@@ -14,12 +14,12 @@ class SelectRecipientViewController: UITableViewController {
     
     var snapDescription = ""
     var downloadURL = ""
+    var imageName = ""
     var users : [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Database users placed into array for tableview display
         Database.database().reference().child("users").observe(.childAdded) { (snapshot) in
             let user = User()
             if let userDictionary = snapshot.value as? NSDictionary {
@@ -33,10 +33,8 @@ class SelectRecipientViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return users.count
     }
     
@@ -53,9 +51,8 @@ class SelectRecipientViewController: UITableViewController {
         
         let user = self.users[indexPath.row]
         if let fromEmail = Auth.auth().currentUser?.email {
-            let snap = ["from": fromEmail, "description": snapDescription, "imageURL": downloadURL]
+            let snap = ["from": fromEmail, "description": snapDescription, "imageURL": downloadURL,"imageName":imageName]
             Database.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
-            
             navigationController?.popViewController(animated: true)
         }
     }

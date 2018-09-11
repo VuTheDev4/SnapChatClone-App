@@ -21,6 +21,20 @@ class SnapsViewController: UITableViewController {
             Database.database().reference().child("users").child(currentUserid).child("snaps").observe(.childAdded) { (snapshot) in
                 self.snaps.append(snapshot)
                 self.tableView.reloadData()
+                
+                Database.database().reference().child("users").child(currentUserid).child("snaps").observe(.childRemoved, with: { (snapshot) in
+                    
+                    var index = 0
+                    for snap in self.snaps {
+                        if snapshot.key == snap.key {
+                            self.snaps.remove(at: index)
+                        }
+                        index += 1
+                    }
+                    self.tableView.reloadData()
+                })
+                
+                
             }
         }
     }
@@ -33,16 +47,25 @@ class SnapsViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return snaps.count
+        
+        if snaps.count == 0 {
+            return 1
+        } else {
+            return snaps.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        let snap = snaps[indexPath.row]
-        if let snapDictionary = snap.value as? NSDictionary {
-            if let email = snapDictionary["from"] as? String {
-                cell.textLabel?.text = email
+        if snaps.count == 0 {
+            cell.textLabel?.text = "You have no snaps 😞"
+        } else {
+            let snap = snaps[indexPath.row]
+            if let snapDictionary = snap.value as? NSDictionary {
+                if let email = snapDictionary["from"] as? String {
+                    cell.textLabel?.text = email
+                }
             }
         }
         return  cell
@@ -61,7 +84,6 @@ class SnapsViewController: UITableViewController {
                 if let snap = sender as? DataSnapshot {
                     viewVC.snap = snap
                 }
-                
             }
         }
     }

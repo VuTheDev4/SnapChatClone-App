@@ -17,6 +17,7 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
     
     var imagePicker : UIImagePickerController?
     var imageAdded = false
+    var imageName = "\(NSUUID().uuidString).jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,7 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
                 if let image = imageView.image {
                     if let imageData =  UIImageJPEGRepresentation(image, 0.1) {
                         // Gives each picture a unique ID                Upload and save data
-                        imageFolder.child("\(NSUUID().uuidString).jpg").putData(imageData, metadata: nil, completion: { (metadata, error) in
+                        imageFolder.child(imageName).putData(imageData, metadata: nil, completion: { (metadata, error) in
                             if let error = error {
                                 self.presentAlert(alert: error.localizedDescription)
                             } else {
@@ -88,6 +89,7 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
             if let selectVC = segue.destination as? SelectRecipientViewController {
                 selectVC.downloadURL = downloadURL
                 selectVC.snapDescription = messageTextField.text!
+                selectVC.imageName = imageName
             }
         }
     }
