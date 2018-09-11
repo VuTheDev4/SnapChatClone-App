@@ -31,13 +31,11 @@ class LoginViewController: UIViewController {
         if let email = emailTextField.text {
             if let password = passwordTextField.text {
                 if signupMode {
-                    
                     // sign up
                     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                         if let error = error {
                             self.presentAlert(alert: error.localizedDescription)
                         } else {
-                            
                             // add users to database
                             if let user = user {
                                 Database.database().reference().child("users").child(user.uid).child("email").setValue(user.email)

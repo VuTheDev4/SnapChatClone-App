@@ -52,7 +52,6 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
         }
         dismiss(animated: true, completion: nil)
     }
-    
     @IBAction func nextTapped(_ sender: Any) {
         
         if let message = messageTextField.text {
@@ -74,7 +73,6 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
                                 }
                             }
                         })
-                        
                     }
                 }
             } else {

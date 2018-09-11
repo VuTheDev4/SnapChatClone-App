@@ -52,10 +52,13 @@ class SelectRecipientViewController: UITableViewController {
         let user = self.users[indexPath.row]
         if let fromEmail = Auth.auth().currentUser?.email {
             let snap = ["from": fromEmail, "description": snapDescription, "imageURL": downloadURL,"imageName":imageName]
-            Database.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
-            navigationController?.popViewController(animated: true)
+        Database.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
+            
+            navigationController?.popToRootViewController(animated: true)
+            
         }
     }
+    
 }
 
 class User {
